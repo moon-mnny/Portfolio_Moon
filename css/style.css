@@ -11,6 +11,28 @@ html {
   -ms-scroll-snap-type: y mandatory;
   scroll-snap-type: y mandatory;
   font-size: 8pt;
+  background-color: rgb(35, 33, 33);
+  overflow-x: hidden;
+}
+a {
+  cursor: ne-resize;
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: white;
+}
+/* Scrollbar always shown and style */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 section {
@@ -29,19 +51,15 @@ section {
   line-height: 1.2;
   font-style: normal;
   font-size: calc(1rem + 1vw);
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 section::after {
   content: "";
   display: table;
   clear: both;
 }
-h1 {
-  /* position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  text-align: center; */
-}
+
 h2 {
   margin-bottom: 20px;
 }
@@ -110,37 +128,134 @@ h2 a:hover {
   /* max-width: 90.5vw; */
   padding: 20px;
   font-size: calc(1rem + 1vw);
+  max-width: 100vw;
+  max-height: 30vh;
 }
 p.description {
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   font-size: calc(1rem + 0.5vw);
+  word-wrap: break-word;
 }
 
 #designlink {
-  min-width: 200px;
-  font-size: calc(1rem + 1.5vw);
+  font-size: calc(1.5vw);
   padding: 10px;
+  margin-right: 2vw;
+  margin-bottom: 1vw;
   border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-  float: right;
+  background: white;
+  color: black;
+  cursor: ne-resize;
+  float: left;
 }
 
 #designlink:hover {
-  background: #ddd;
-  color: black;
+  background: rgba(235, 94, 94, 1);
+  color: white;
 }
 
-#coding-project {
+div.coding-projects {
   margin: auto;
+  padding: 5vh 1vw;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   max-width: 100vw;
-  min-height: 84vh;
-  max-height: 85vh;
+  height: 80vh;
+  overflow: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+}
+.project {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+}
+.project img {
+  width: 70vh;
+  height: 70vh;
+}
+.projectImg {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.projectContent {
+  width: 70vh;
+  height: 40%;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  padding: 5vh;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: inline-block;
+}
+.project:hover .projectImg {
+  opacity: 0.3;
+}
+
+.project:hover .projectContent {
+  opacity: 1;
+}
+
+button {
   background-color: white;
+  color: black;
+  border: none;
+  cursor: ne-resize;
+  font-family: aktiv-grotesk-extended, sans-serif;
+  padding: 5px;
+}
+button:hover {
+  background-color: rgba(235, 94, 94, 1);
+  color: white;
+}
+
+.aboutme {
+  margin: auto;
+  padding: 5vh 1vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-width: 100vw;
+  height: 90vh;
+  overflow: auto;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.aboutmeImg {
+  width: 70%;
+  height: auto;
+  /* filter: grayscale(100%); */
+}
+li {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+li a {
+  color: rgba(235, 94, 94, 1);
+}
+li a:hover {
+  background: rgba(235, 94, 94, 1);
+  color: white;
+}
+ol {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.sublist {
+  margin-top: 0.2rem;
 }
