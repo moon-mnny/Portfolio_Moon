@@ -50,7 +50,7 @@ select:focus {
   float: left;
   width: 47%;
   padding: 10px;
-  height: 300px;
+  height: 180px;
 }
 .row:after {
   content: "";
